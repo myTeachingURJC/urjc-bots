@@ -10,4 +10,4 @@ soffice --headless --convert-to ods $SRC_FILE.xls
 # ----- Generate the target file
 mv $SRC_FILE.ods $TARGET_FILE.ods
 
-
+echo "FICHERO GENERADO: $TARGET_FILE.ods"
