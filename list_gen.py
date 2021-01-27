@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from pyexcel_ods3 import get_data, save_data
 from collections import OrderedDict
 
@@ -30,9 +31,6 @@ entry_src = [ row for row in sheet if row != [] ]
 # -- Eliminar la primera fila (cabecera)
 entry_src = entry_src[1:]
 
-#-- Obtener el numero total de estudiantes
-print(f"Estudiantes Totales: {len(entry_src)}\n")
-
 # -- Formato de la hoja destino
 entry_dst = [["Mat", "Conv", "DNI", "Nombre"]]
 
@@ -47,9 +45,11 @@ for estudiante in entry_src:
     row_dst = [mat, conv, dni, name]
     entry_dst.append(row_dst)
 
-print(entry_dst)
-
 # -- Write the destination sheet
 data_dst = OrderedDict()
 data_dst.update({SHEET_TARGET: entry_dst})
 save_data(FILENAME_TARGET, data_dst)
+
+#-- Obtener el numero total de estudiantes
+print(f"Estudiantes Totales: {len(entry_src)}\n")
+print(f"Fichero de salida: {FILENAME_TARGET}\n")
